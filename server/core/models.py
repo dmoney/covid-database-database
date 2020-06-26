@@ -26,5 +26,7 @@ class Source(models.Model):
 
     fields=models.ManyToManyField(Field)
 
+    using=models.ManyToManyField("self", symmetrical=False, related_name="used_by")
+
     def __str__(self):
         return f"{self.name} (by {self.author_name or 'Unknown'})"
