@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}Sources{% endblock %}
+{% block headtitle %}Sources{% endblock %}
+
+{% block body %}
+
+<ul>
+{% for source in sources %}
+
+  <li><a href='/source/{{ source.id }}'>{{ source.name }} (by {{ source.author_name }})</a></li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}

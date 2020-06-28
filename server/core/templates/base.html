@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Covid Database Database - {% block pagetitle %}{% endblock %}</title>
+    <style>
+      body{
+        font-family: "Helvetica", "sans-serif";
+      }
+      header {
+        background-color: #eeeeee;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1em;
+      }
+      footer {
+        background-color: #eeeeee;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1em;
+      }
+      header h1, header h2{
+        font-size: 1.5em;
+      }
+      content {
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Covid Database Database</h1>
+      <h2>{% block headtitle %}{% endblock %}</h2>
+    </header>
+    <content>
+      <br/><br/>
+      {% block body %}{% endblock %}
+      <br/></br/>
+    </content>
+    <footer>Should probably have a footer here.</footer>
+  </body>
+</html>

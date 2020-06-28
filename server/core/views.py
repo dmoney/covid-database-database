@@ -6,12 +6,17 @@ from .models import *
 # Create your views here.
 
 def home(request):
-    return HttpResponse('Why not go to <a href="/sources">sources</a>')
+    return render(request, 'home.html')
 
 def sources(request):
-    return HttpResponse("<h2>Sources</h2>" + "<br/>".join([f"<a href='/source/{x.id}'>{str(x)}</a>" for x in Source.objects.all()]))
+    return render(request, 'sources.html', {"sources": Source.objects.all()})
 
 def source(request, id):
     source_obj = get_object_or_404(Source, pk=id)
-    # source_obj = Source.create(name="abaldkjflsadkfj")
-    return HttpResponse(f"<h2>{source_obj.name}</h2>")
+    using = source_obj.using.all()
+    used_by = source_obj.used_by.all()
+    return render(request, 'source.html', {
+        "source": source_obj,
+        "using_sources": using,
+        "used_by_sources": used_by,
+        })

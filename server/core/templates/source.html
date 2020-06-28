@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}{{ source.name }} (by {{ source.author_name }}){% endblock %}
+{% block headtitle %}{{ source.name }}{% endblock %}
+
+{% block body %}
+<p>
+  Data Source URL: <a href="{{ source.url }}">{{ source.url }}</a><br/>
+  Data Source Author: <a href="{{ source.author_url }}">{{ source.author_name }}</a>
+</p>
+
+<p>
+  Data Source Description: {{ source.description }}
+</p>
+
+<p>
+  This source uses the following other sources:
+  <ul>
+    {% for used_source in using_sources %}
+      <li>
+        <a href='/source/{{ used_source.id }}'>{{ used_source.name }}
+        (by {{ used_source.author_name }})</a>
+      </li>
+    {% endfor %}
+  </ul>
+</p>
+
+<p>
+  This source is used by the following other sources:
+  <ul>
+  {% for used_by_source in used_by_sources %}
+    <li>
+      <a href='/source/{{ used_by_source.id }}'>{{ used_by_source.name }}
+      (by {{ used_by_source.author_name }})</a>
+    </li>
+  {% endfor %}
+  </ul>
+</p>
+{% endblock %}
