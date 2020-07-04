@@ -4,6 +4,8 @@
 {% block headtitle %}{{ source.name }}{% endblock %}
 
 {% block body %}
+<nav><small><a href="{% url 'sources' %}">Sources</a> &gt; {{ source.name }}</small></nav>
+
 <p>
   Data Source URL: <a href="{{ source.url }}">{{ source.url }}</a><br/>
   Data Source Author: <a href="{{ source.author_url }}">{{ source.author_name }}</a>
