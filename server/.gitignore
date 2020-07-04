@@ -8,5 +8,7 @@ __pycache__
 db.sqlite3
 media
 
+cvdbdb/local_settings.py
+
 # Backup files #
 *.bak
