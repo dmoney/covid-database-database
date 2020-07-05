@@ -31,13 +31,23 @@
   <body>
     <header>
       <h1>Covid Database Database</h1>
-      <h2>{% block headtitle %}{% endblock %}</h2>
     </header>
+    <nav>
+      <small>
+        {% block breadcrumbs %}{% endblock %}
+      </small>
+    </nav>
+    <h2>{% block headtitle %}{% endblock %}</h2>
     <content>
-      <br/><br/>
       {% block body %}{% endblock %}
       <br/></br/>
     </content>
-    <footer>Should probably have a footer here.</footer>
+    <footer>
+      Covid Database Database by Dustin King
+      (<a href="https://dking.org//blog/">Blog</a>
+      | <a href="mailto:cathodion@gmail.com">Contact</a>
+      | <a href="https://twitter.com/cathodion">Twitter</a>).
+       Inclusion of sources isn't an endorsement of their accuracy.
+    </footer>
   </body>
 </html>

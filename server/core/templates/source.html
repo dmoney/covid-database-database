@@ -3,8 +3,15 @@
 {% block pagetitle %}{{ source.name }} (by {{ source.author_name }}){% endblock %}
 {% block headtitle %}{{ source.name }}{% endblock %}
 
+{% block breadcrumbs %}
+  <a href="{% url 'home' %}">Home</a>
+  &gt; <a href="{% url 'sources' %}">Sources</a>
+  &gt; {{ source.name }}
+
+{% endblock %}
+
 {% block body %}
-<nav><small><a href="{% url 'sources' %}">Sources</a> &gt; {{ source.name }}</small></nav>
+
 
 <p>
   Data Source URL: <a href="{{ source.url }}">{{ source.url }}</a><br/>
