@@ -15,7 +15,18 @@
 
 <p>
   Data Source URL: <a href="{{ source.url }}">{{ source.url }}</a><br/>
-  Data Source Author: <a href="{{ source.author_url }}">{{ source.author_name }}</a>
+  Data Source Author:
+  {% if source.author_url %}
+  <a href="{{ source.author_url }}">
+  {% endif %}
+    {% if source.author_name %}
+      {{ source.author_name }}
+    {% else %}
+      Unknown
+    {% endif %}
+  {% if source.author_url %}
+  </a>
+  {% endif %}
 </p>
 
 <p>
