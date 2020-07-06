@@ -1,0 +1,31 @@
+# Generate a new SECRET_KEY at the Python command line using:
+# >>> from django.core.management.utils import get_random_secret_key
+# >>> get_random_secret_key()
+SECRET_KEY = ""
+
+# Should be False for a publicly accessible server.
+DEBUG = False
+
+# Add the database NAME, USER, and PASSWORD for logging into a
+# Postgres database (which will need to have been created).
+# HOST: "localhost" and PORT: "" for a db on the same server.
+# If using non-postgres, refer to Django docs for settings.py.
+DATABASES = {
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+      'NAME': '',
+      'USER': '',
+      'PASSWORD': '',
+      'HOST': 'localhost',
+      'PORT': '',
+  }
+}
+
+# Static files will be copied here when you run
+# python3 manage.py collectstatic.  Customize location
+# for your installation.
+STATIC_ROOT = '/var/www/cvdbdb/static/'
+
+# domain name through which users will access the server should
+# be in this list.  E.g. ["example.com"]
+ALLOWED_HOSTS = []

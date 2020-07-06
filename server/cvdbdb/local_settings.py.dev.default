@@ -1,0 +1,22 @@
+import os
+from .settings import BASE_DIR
+
+# Generate a new one at the Python command line using:
+# >>> from django.core.management.utils import get_random_secret_key
+# >>> get_random_secret_key()
+SECRET_KEY = ""
+
+DEBUG = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+# probably not needed for local dev
+STATIC_ROOT = ""
+
+# probably not needed for local dev
+ALLOWED_HOSTS = []

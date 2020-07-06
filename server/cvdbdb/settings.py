@@ -12,20 +12,33 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Base directory of the django project.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+# Import server (or dev machine)-specific settings, which should not
+# be checked into version control (.gitignore'd) as opposed to
+# the current file, which should.
+try:
+    from . import local_settings
+except ImportError:
+    raise Exception(
+        "Could not import local_settings. " +
+        "Please copy one of the local_settings.py.*.default " +
+        "files to local_settings.py and customize it for your environment.")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y1#(wd6jru7*jnn_#df*he))y3n-h@ok^!-h%fs=s%^hn)*e_#'
+SECRET_KEY = local_settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = local_settings.DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = local_settings.ALLOWED_HOSTS
 
 
 # Application definition
@@ -74,12 +87,7 @@ WSGI_APPLICATION = 'cvdbdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES = local_settings.DATABASES
 
 
 # Password validation
@@ -119,3 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = local_settings.STATIC_ROOT
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
