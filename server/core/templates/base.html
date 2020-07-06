@@ -24,7 +24,9 @@
       header h1, header h2{
         font-size: 1.5em;
       }
-      content {
+      #content {
+        padding-left: 1em;
+        padding-right: 1em;
       }
     </style>
   </head>
@@ -37,11 +39,12 @@
         {% block breadcrumbs %}{% endblock %}
       </small>
     </nav>
-    <h2>{% block headtitle %}{% endblock %}</h2>
-    <content>
+
+    <div id="content">
+      <h2>{% block headtitle %}{% endblock %}</h2>
       {% block body %}{% endblock %}
       <br/></br/>
-    </content>
+    </div>
     <footer>
       Covid Database Database by Dustin King
       (<a href="https://dking.org//blog/">Blog</a>
