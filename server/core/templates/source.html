@@ -23,6 +23,7 @@
 </p>
 
 <p>
+  {% if using_sources %}
   This source uses the following other sources:
   <ul>
     {% for used_source in using_sources %}
@@ -32,9 +33,13 @@
       </li>
     {% endfor %}
   </ul>
+  {% else %}
+  This source isn't known to use any other sources.
+  {% endif %}
 </p>
 
 <p>
+  {% if used_by_sources %}
   This source is used by the following other sources:
   <ul>
   {% for used_by_source in used_by_sources %}
@@ -44,5 +49,8 @@
     </li>
   {% endfor %}
   </ul>
+  {% else %}
+  This source isn't known to be used by any other sources.
+  {% endif %}
 </p>
 {% endblock %}
