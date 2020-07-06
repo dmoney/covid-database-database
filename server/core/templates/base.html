@@ -7,19 +7,39 @@
       body{
         font-family: "Helvetica", "sans-serif";
       }
+      :root {
+        --header-footer-bgcolor: #3a2e38;
+        --header-footer-text: white;
+        --header-footer-rounding: 3px;
+        --body-text-color: black;
+        --body-bgcolor: white;
+      }
       header {
-        background-color: #eeeeee;
+        background-color: var(--header-footer-bgcolor);
+        color: var(--header-footer-text);
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
         padding: 1em;
+        border-radius: var(--header-footer-rounding);
       }
       footer {
-        background-color: #eeeeee;
-        margin-bottom: 0;
+        background-color: var(--header-footer-bgcolor);
+        color: var(--header-footer-text);
         margin-left: 0;
         margin-right: 0;
         padding: 1em;
+        /* position: absolute; */
+        bottom: .5em;
+        right: .5em;
+        left: .5em;
+        border-radius: var(--header-footer-rounding);
+      }
+      footer a {
+        color: #dddddd;
+      }
+      footer a:visited {
+        color: #dddddd;
       }
       header h1, header h2{
         font-size: 1.5em;
@@ -27,6 +47,10 @@
       #content {
         padding-left: 1em;
         padding-right: 1em;
+      }
+      body {
+        background-color: var(--body-bgcolor);
+        color: var(--body-text-color);
       }
     </style>
   </head>
