@@ -14,8 +14,11 @@
 
 
 <p>
-  Data Source URL: <a href="{{ source.url }}">{{ source.url }}</a><br/>
-  Data Source Author:
+  <label>Data Source URL:</label>
+  <a href="{{ source.url }}">{{ source.url }}</a>
+</p>
+<p>
+  <label>Data Source Author:</label>
   {% if source.author_url %}
   <a href="{{ source.author_url }}">
   {% endif %}
@@ -30,10 +33,15 @@
 </p>
 
 <p>
-  Data Source Description: <br/>{{ description_html | safe }}
+  <label>Data Source Description:</label>
+  <div class="multiline">
+    {{ description_html | safe }}
+  </div>
 </p>
 
 <p>
+  <label>Using:</label>
+  <div class="multiline">
   {% if using_sources %}
   This source uses the following other sources:
   <ul>
@@ -47,21 +55,25 @@
   {% else %}
   This source isn't known to use any other sources.
   {% endif %}
+  </div>
 </p>
 
 <p>
-  {% if used_by_sources %}
-  This source is used by the following other sources:
-  <ul>
-  {% for used_by_source in used_by_sources %}
-    <li>
-      <a href='/source/{{ used_by_source.id }}'>{{ used_by_source.name }}
-      (by {{ used_by_source.author_name }})</a>
-    </li>
-  {% endfor %}
-  </ul>
-  {% else %}
-  This source isn't known to be used by any other sources.
-  {% endif %}
+  <label>Used By:</label>
+  <div class="multiline">
+    {% if used_by_sources %}
+    This source is used by the following other sources:
+    <ul>
+    {% for used_by_source in used_by_sources %}
+      <li>
+        <a href='/source/{{ used_by_source.id }}'>{{ used_by_source.name }}
+        (by {{ used_by_source.author_name }})</a>
+      </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    This source isn't known to be used by any other sources.
+    {% endif %}
+  </div>
 </p>
 {% endblock %}
